@@ -1,0 +1,48 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": null,
+    "title": "Simple Dashboard",
+    "tags": [],
+    "timezone": "browser",
+    "schemaVersion": 16,
+    "version": 0,
+    "templating": {
+      "list": [
+        {
+          "current": {
+            "text": "Prometheus",
+            "value": "Prometheus"
+          },
+          "hide": 0,
+          "label": null,
+          "name": "datasource",
+          "options": [],
+          "query": "prometheus",
+          "skipUrlSync": false,
+          "type": "datasource"
+        }
+      ]
+    },
+    "panels": [
+      {
+        "datasource": "$datasource",
+        "gridPos": {
+          "h": 9,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "id": 1,
+        "options": {
+          "content": "The current time is: ${__from:date:HH:mm:ss}",
+          "mode": "markdown"
+        },
+        "pluginVersion": "7.0.0",
+        "transparent": true,
+        "type": "text"
+      }
+    ]
+  },
+  "overwrite": false
+}

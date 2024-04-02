@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 )
 
 func TestDashboardLinting(t *testing.T) {
@@ -19,6 +20,9 @@ func TestDashboardLinting(t *testing.T) {
 			// Check if the file is not a directory and has a ".json" extension
 			if !info.IsDir() && strings.HasSuffix(info.Name(), ".json") {
 				t.Run(path, func(t *testing.T) {
+					t.Parallel()                       // Run tests in parallel, so they don't block each other and it's faster
+					time.Sleep(100 * time.Millisecond) // Simulate a slow test
+
 					t.Logf("Linting Grafana dashboard JSON file: %s", path)
 					// Run the "dashboard-linter" command to lint the JSON file
 					cmd := exec.Command("dashboard-linter", "lint", path, "--verbose", "--strict")
