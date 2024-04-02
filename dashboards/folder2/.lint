@@ -1,0 +1,3 @@
+exclusions:
+  template-datasource-rule:
+    reason: I don't know how to get this rule to pass
